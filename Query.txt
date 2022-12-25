@@ -1,0 +1,395 @@
+SELECT
+ DISTINCT YEAR(ModifiedDate) * 10000 +MONTH(PlodifiedDate)*100+DAY(ModifiedDate)AS Datekey
+ CONVERT(date,modifiedDate)AS FullDate,
+ DATEPART(DW,ModifiedDate)AS DayNumberOfWork
+ DATENAME(ON,ModifiedDate)AS DayaneOflicek,
+ DAY(Modifiedbate) AS DayNumberofmonth,
+ DATEPART(OV,ModifiedDate) AS DayNumberofYear,
+ DATEPART(WK,ModifiedDate) AS weekdumberOfYear,
+ DATENAME(month,ModifiedDate) AS Monthliame,
+ MONTH(Modifiedbate) AS Monthlumber of year,
+ YEAR(ModifiedDate) AS CalendarYear
+FROM Purchasing.ShipMethod as poh LEFT JOIN Adventureworks 20170LAP.dbo.DimTime as dt
+On poh.ModifiedDate dt.FullDate
+WHERE dt.FullDate is NULL
+
+UNION
+SELECT
+ DISTINCT YEAR(Modifieddate) * 10000 +MONTH(ModifiedDate) * 100 +DAY(ModifiedDate)AS DateKey
+ CONVERT(date,ModifiedDate)AS FullDate,
+ DATEPART(DM,ModifiedDate)AS DaylumberOfweek,
+ DATENAME(DW,ModifiedDate)AS Dayaneofweek,
+ DAY(ModifiedDate)AS DayNumberOfMonth,
+ DATEPART(DV,ModifiedDate)AS DaylumberOfYear,
+ DATEPART(WK,ModifiedDate)AS weekNumber of year,
+ DATENAME(month,ModifiedDate)AS Monthname,
+ MONTH(ModifiedDate)AS MonthumberOf Year,
+ YEAR(ModifiedDate)AS CalendarYear
+FROM Purchasing.vendor as v LEFT JOIN Adventureworks 20170LAP.dbo.Dimtime as dt
+ON v.ModifiedDate = dt.FullDate
+WHERE dt.FullDate IS NULL
+
+UNION
+
+SELECT
+ DISTINCT YEAR(ModifiedDate) * 10000 +MONTH(ModifiedDate) * 100+DAY(ModifiedDate)AS Datekey,
+ CONVERT(date,ModifiedDate)AS FullDate,
+ DATEPART(DW,ModifiedDate)AS DayNumberOfweek,
+ DATENAME(DW,ModifiedDate)AS DayNameOfWeek,
+ DAY(ModifiedDate)As Daylumberof Month,
+ DATEPART(DY,ModifiedDate)AS DayNumber of Year,
+ DATEPART(WK,ModifiedDate)AS weekdumber of year,
+ DATENAME(month,ModifiedDate)AS Monthliane,
+ MONTH(ModifiedDate)AS Monthumberofyear,
+ YEAR(ModifiedDate)AS CalendarYear
+FROM Purchasing.PurchaseorderHeader as poh LEFT JOIN Adventureworks20170LAP.dbo.Dimtime as dt
+ON poh.ModifiedDate = dt.fullDate
+WHERE dt.FullDate IS NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(OrderDate) * 10000 +MONTH(OrderDate) * 100 +DAY(OrderDate)AS Datekoy,
+ CONVERT(date,Orderbate)AS FullDate,
+ DATEPART(DM,OrderDate)AS DayNumberofweek,
+ DATENAME(DW,Orderoate)AS Daytimeofweek,
+ DAY(Orderbate)AS DayNumberOfMonth,
+ DATEPART(DY,Orderoate)AS Daytaumber of year,
+ DATEPART(WK,Orderoate)AS weekNumberofyear,
+ DATENAME(month,orderDate)AS Monthliane,
+ MONTH(OrderDate)AS Monthunumberofyear,
+ YEAR (OrederDate) AS CalenderYear
+FROM purchasing.PurchaseOrderHeader as poh LEF JOIN AadventureWorks2017OLAP.dbo.DimTime as dt
+ON poh.OrderDate = da.FullDate
+WHERE dt.FullDate = IS NULL
+ 
+UNION
+
+SELECT
+ DISTINCT YEAR(ShipDate)10000 MONTH(Shipdate)100 DAY(Shipdate)AS Datekey,
+ CONVERT(date,ShipDate) AS FullDate,
+ DATEPART(DW,Shipdate) AS DaytlumberOfWeek,
+ DATENAME(DW,shipDate) AS Daytame of week,
+ DAY(Shipdate) AS DaytamberofMonth,
+ DATEPART(DY,ShipDate) AS DayNumber of year,
+ DATEPART(WK,ShipDate) AS weekumber of year,
+ DATENAME(month,shipdate )AS MonthName,
+ MONTH(Shipdate) AS MonthNumberofyear,
+ YEAR(Shipdate) AS CalendarYear
+DISTINCT YEAR(Shipdate) * 10000 MONTH(Shipdate)100 * DAY(Shipdate)AS Datekey
+CONVERT(date,Shipbate)AS Fulldate,
+DATEPART(,Shipbute)AS Daynumber of week,
+DATENAME(DW,Shipbate)AS DayNameOfWeek,
+DAY(Shipdate)AS Daynumberofmonth,
+DATEPART(DY,Shipdate)As DaytuberofYear,
+DATEPART(WK,ShipDate)AS weeknumberofyear,
+DATENAME(month,Shipbate)AS MonthName,
+MONTH(ShipDate)AS Monthlumber of rear,
+YEAR(Shipdate)AS CalendarYear
+FROM Purchasing.PurchaseorderHeader as poh LEFT JOIN Adventureworks 20170LAP.dbo.Dimtime as dt
+ON poh.shipdate dt.FullDate
+WHERE dt.FullDate IS NULL
+
+UNION
+
+SELECT
+ DISTINCT YEAR(Modifieddate) * 10000 +MONTH(ModifiedDate) * 100 +DAY(ModifiedDate)AS Datekey,
+ CONVERT(date,modifiedDate) AS FullDate,
+ DATEPART(DW,ModifiedDate) AS DayNumberOfWeek,
+ CATENAME(ON,ModifiedDate) AS DayNameOfWeek,
+ DAY(Modifiedbate) AS DayNumberOfMonth,
+ DATEPART(DV,ModifiedDate) AS DayNumberOf Year,
+ DATEPART(WK,ModifiedDate) AS weekNumberOfvear,
+ DATENARE(month,Modifiedbate) AS Monthname,
+ MONTH(ModifiedDate) AS Monthumberofyear,
+ YEAR(ModifiedDate)AS CalendarYear
+ FROM purchasing.vendor as v LEFT JOIN Adventureworks2017OLAP.dbo.DimTime as dt
+ ON pod.ModifiedDate = dt.FullDate
+ WHERE pod.ModifiedDate IS NULL
+
+UNION
+SELECT
+DISTINCT YEAR(DueDate) * 10000 +MONTH(DueDate) * 100 DAY(DueDate)AS Datekey,
+CONVERT(date,Duebate)AS FullDate,
+DATEPART(DW,DueDate)AS Daylumber of week,
+DATENAME(DM,DueDate)AS Dayllaneofweek,
+DAY(DueDate)AS DayNumber of Month,
+DATEPART(DY,Duebate)AS Dayliumber of Year,
+DATEPART(WK,DueDate)AS Weeklumber of year,
+DATENAME(month,DueDate)AS MonthName,
+MONTH(DueDate)AS MonthlumberOfvear,
+YEAR(DueDate)AS CalendarYear
+FROM Purchasing.Purchaseorder Detail as ped LEFT JOIN Adventureworks 20170LAP.dbo.DimTime as dt
+ON pod.DueDate dt.FullDate
+WERE dt.FullDate NULL
+
+
+
+UNION
+
+SELECT
+DISTINCT YEAR(ModifiedDate) * 10000 MONTH(ModifiedDate) * 100 DAY(ModifiedDate)AS Datekey
+ CONVERT(date,ModifiedDate) AS Fulloate,
+ DATEPART(DW,ModifiedDate) AS DayNumberOfweek,
+ DATENAME(DW,ModifiedDate) AS DayNameOficok,
+ DAY(ModifiedDate) As DayNumberOfMonth,
+ DATEPART(DY,ModifiedDate) AS DayNumberof Year,
+ DATEPART(WK,ModifiedDate)AS WeekNumber of year,
+ DATENAME(month,ModifiedDate) AS MonthName,
+ MONTH(RodifiedDate) AS Monthnumber of year,
+ YEAR(ModifiedDate) AS Calendar year
+ FROM Purchasing.PurchaseorderHeader as poh LEFT JOIN Adventureworks 20170LAP.dbo.Dimtime as dt
+ ON pv.ModifiedDate = dt.FullDate
+ WHERE dt.FullDate
+
+UNION
+
+SELECT
+DISTINCT YEAR(Modifiedbate) * 10000+MONTH(ModifiedDate) * 100+DAY(ModifiedDate)AS DateKey,
+CONVERT(date,ModifiedDate)AS FullDate,
+DATEPART(DW,ModifiedDate)AS DayamberOfweek,
+DATENAME(DW,ModifiedDate)AS DayNameOfWeek,
+DAY(ModifiedDate)AS DayNumberOfMonth,
+DATEPART(DY,ModifiedDate)AS DayNumber of year,
+DATEPART(WK,ModifiedDate)AS weekNumber of year,
+DATENAME(month,ModifiedDate)AS Monthtime,
+MONTH(ModifiedDate)AS MonthNumber of year,
+YEAR(ModifiedDate)AS CalendarYear
+FROM Purchasing.ProductVendor as pv LEFT JOIN Adventureworks 20170LAP.dbo.DimTime as dt
+ON pv.ModifiedDate = dt.FullDate
+WHERE dt.FullDate IS NULL
+
+UNION
+SELECT
+DISTINCT YEAR(LastReceiptDate)*10000 +MONTH(LastReceiptDate) * 100 +DAY(LastReceiptDate)AS Datekey,
+CONVERT(date,LastReceiptDate) AS FullDate,
+DATEPART(DW,LastReceiptDate)AS DayNumberOfWeek,
+DATENAME(DW,LastReceiptoate)AS Daytaneofleek,
+DAY(LastReceiptDate)AS Daylumber of month,
+DATEPART(DY,Lastnceiptoate)AS DayNumberOfYear,
+DATEPART(WK,LastReceiptDate)AS Weeklamber of Year,
+DATENAME(month,LastReceiptDate)AS MonthName,
+MONTH(LastReceiptoate)AS Honthamberofyear,
+YEAR(LastReceiptDate)AS CalendarYear
+FROM Purchasing.Productvendor as pv LEFT JOIN Adventureworks20170LAP.dbo.Dimtime as dt
+ON pv.LastReceiptoate=dt.FullDate
+WHERE dt.FullDate IS NULL
+
+UNION
+SELECT
+DISTINCT YEAR(Sel1StartDate) * 1000 MONTH(SellStartDate * 100+DAY(SellStartDate)AS Datekey
+CONVERT(date,SellstartDate) AS FullDate,
+DATEPART(DW,Sellstartoate)AS DayNumberofsek
+DATENAME(ON,SallstartDate)AS DayNameOfWeek,
+DAY(SellStartDate)AS Dayllumber of Month,
+DATEPART(DY,SellstartDate)AS Daytumber of year,
+DATEPART(WK,sellstartDate)AS Hoeklamber of rear,
+DATERAHE(month,SelistartDate)AS Monthame,
+MONTH(SellStartDate)AS Monthamber of year,
+YEAR(sellstartDate)AS Calendar Year
+FROM Production,Product as p LEFT 30TH Adventureworks20170LAP.do.Dimtime as dt
+ON p.SellstartDate dt.FullDate
+DATEPART(ON,SHE Startdate)AS Daynumberofweek,
+DATENAME(DW,SellstartDate)AS DayNameofweek,
+DAY(SellstartDate)AS Daylumber Of Month,
+DATEPART(DY,SellstartDate)AS DayNumberOfYear,
+DATEPART(wk,SellstartDate)AS WeekNumber of Year,
+DATENAME(month,sellstartDate)AS Monthtime,
+MONTH(SellstartDate)AS MonthNumber Of Year,
+YEAR(SellStartDate)AS Calendar Year
+FROM Production.Product aspLEFT JOIN
+ON p.SellstartDate dt.FullDate Adventureworks20170LAP.dbo.Dimtime as dt
+WHERE dt.FullDate TS NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(SellEndDate) * 10000 +MONTH(Sellabate)*100 +DAY(SellEndDate)AS Datekey,
+CONVERT(date,SellEndbate)AS FullDate,
+DATEPART(DW,SellEndDate)AS DayNumberofweek,
+DATENAME(OM.SellEndDate)AS Daynameofweek,
+DAY(SellEndDate)DayNumberOfMonth,
+DATEPART(DY,SellEndDate)AS DayNumber of Year,
+DATEPART(WK,SellEndDate)AS MeekNumber of Year,
+DATENAME(month.sellEndoate)AS Monthlane,
+MONTH(SellEndDate)AS Monthnumber of year,
+YEAR(sellEndDate)AS Calendar year
+FROM Production.Product aspLEFT JOIN Adventureworks20170LAP.dbo.Dimtime as dt
+ON p.SellEndDate=dt.FullDate
+WHERE dt.FullDate 15 RULL AND SellEndDate IS NOT NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(DiscontinuedDate) * 10000 +MONTH(DiscontinuedDate) * 100+DAY(DiscontinuedDate)AS Datekey,
+CONVERT(date,DiscontinuedDate) AS FullDate,
+DATEPART(DW,DiscontinuedDate)AS DayNumberOfWeek,
+DATENAME(DW,DiscontinuedDate)AS DayliameOfWeek,
+DAY(DiscontinuedDate)AS DayNumber of Month,
+DATEPART(DY,DiscontinuedDate)AS DaylumberOfYear,
+DATEPART(WK,DiscontinuedDate)AS WeekNumberOfYear,
+DATENAME(month,DiscontinuedDate)AS MonthName,
+MONTH(DiscontinuedDate)AS Monthnumber of year,
+YEAR(DiscontinuedDate)AS CalendarYear
+FROM Production.Product as p LEFT JOIN Adventureworks20170LAP.dbo.DimTime as dt
+ON p.DiscontinueDate = dt.FullDate
+WHERE dt.FullDate IS NULL AND DiscontinueDate IS NOT NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(ModifiedDate) * 10000 MONTH(ModifiedDate) * 100+DAY(ModifiedDate)AS DateKey,
+CONVERT(date,ModifiedDate)AS FullDate,
+DATEPART(DW,ModifiedDate)AS DayNumberofweek,
+DATENAME(DW,ModifiedDate)AS DayNameOfWeek,
+DAY(ModifiedDate)AS DayNumberOfMonth,
+DATEPART(DY,ModifiedDate)AS DayNumberofYear,
+DATEPART(WK,ModifiedDate)AS WeekNumberOfYear,
+DATENAME(month,HodifiedDate)AS Monthname,
+MONTH(ModifiedDate)AS MonthNumberofYear,
+YEAR(ModifiedDate)AS CalendarYear
+FROM Production.Product aspLEFT JOIN Adventureworks20170LAP.do.Dimtime as dt
+ON p.ModifiedDate=dt.FullDate
+WHERE dt.FullDate IS NULL AND ModifiedDate IS NOT NULL
+
+UNION
+ SELECT
+ DISTINCT YEAR(ModifiedDate) * 10000+MONTH(ModifiedDate)* 100+DAY(ModifiedDate) AS Datekey,
+ CONVERT(date,ModifiedDate)AS FullDate,
+ DATEPART(DW,ModifiedDate)AS DayNumberOfWeek,
+ DATENAME(DW,ModifiedDate)AS DayNameOfWeek,
+ DAY(ModifiedDate)AS DayNumberOfMonth,
+ DATEPART(DY,ModifiedDate)AS DayNumberof Year,
+ DATEPART(WK,ModifiedDate)AS WeekNumberOfYear,
+ DATENAME(month,HodifiedDate)AS MonthName,
+ MONTH(ModifiedDate)AS MonthNumber of Year,
+ YEAR(ModifiedDate)AS CalendarYear
+ FROM Production.ProductCategory as pc LEFT JOIN Adventureworks 20170LAP.dbo.DimTime as dt
+ ON pc.ModifiedDate-dt.FullDate
+ WHERE dt.FullDate IS NULL AND ModifiedDate IS NOT NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(ModifiedDate) * 10000 MONTH(ModifiedDate) * 100+DAY(ModifiedDate)AS DateKey,
+CONVERT(date,ModifiedDate)AS FullDate,
+DATEPART(DW,ModifiedDate)AS DayNumberofweek,
+DATENAME(DW,ModifiedDate)AS DayNameOfWeek,
+DAY(ModifiedDate)AS DayNumberOfMonth,
+DATEPART(DY,ModifiedDate)AS DayNumberofvear,
+DATEPART(WK,ModifiedDate)AS WeekNumberOfYear,
+DATENAME(month,ModifiedDate)AS MonthName,
+CONVERT[date,ModifiedDate) AS FullDate,
+DATEPART(DW,ModifiedDate) AS DayNumberOfweek,
+DATENAME(DW,ModifiedDate)AS DayNameOfWeek,
+DAY(ModifiedDate)AS DayNumberOfMonth,
+DATEPART(DY,ModifiedDate)AS DayNumberofYear,
+DATEPART(WK,ModifiedDate)AS WeekNumber of Year,
+DATENAME(month,ModifiedDate)AS Monthliame,
+MONTH(ModifiedDate)AS MonthNumberOf Year,
+YEAR(ModifiedDate)AS CalendarYear
+FROM Production.ProductSubcategory as pcs LEFT JOIN Adventureworks20170LAP.dbo.DimTime as dt
+ON pcs.ModifiedDate dt.FullDate
+WHERE dt.FullDate IS ALL AND ModifiedDate IS NOT NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(Modifiedbate) * 10000 +MONTH(ModifiedDate)*100+DAY(ModifiedDate)AS Datekey
+CONVERT(date,ModifiedDate) AS FullDate,
+DATEPART(DW,ModifiedDate)AS DayNumberOfweek,
+DATENAME(DW,ModifiedDate)AS DayNaneofleek,
+DAY(ModifiedDate)AS DayNumberOfMonth,
+DATEPART(DY,ModifiedDate)AS DayNumber of Year,
+DATEPART(WK,ModifiedDate)AS WeekNumber of Year,
+DATENAME(month,ModifiedDate)AS MonthName,
+MONTH(ModifiedDate)AS MonthNumber of year,
+YEAR(ModifiedDate)AS CalendarYear
+FROM Production.Location as pl LEFT JOIN Adventureworks 20170LAP.dbo.DimTime as dt
+ON pl.ModifiedDate dt.FullDate
+WHERE dt.FullDate IS NULL AND ModifiedDate IS NOT NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(ModifiedDate) * 10000 MONTH(ModifiedDate) * 100+DAY(ModifiedDate)AS DateKey,
+CONVERT(date,ModifiedDate)AS FullDate,
+DATEPART(DW,ModifiedDate)AS DayNumberofweek,
+DATENAME(DW,ModifiedDate)AS DayNameOfWeek,
+DAY(ModifiedDate)AS DayNumberOfMonth,
+DATEPART(DY,ModifiedDate)AS DayNumberOfYear,
+DATEPART(WK,ModifiedDate)AS weekNumber of year,
+DATENAME(month,ModifiedDate)AS MonthName,
+MONTH(ModifiedDate)AS MonthNumber of Year,
+YEAR(ModifiedDate)AS CalendarYear
+FROM Human Resources.Employee as hre LEFT JOIN Adventureworks 2017OLAP.dbo.DimTime as dt
+ON hre.Modifiedbate=dt.FullDate
+WHERE dt.FullDate IS NULL AND ModifiedDate IS NOT NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(BirthDate) * 10000+MONTH(BirthDate) * 100+DAY(BirthDate)AS Datekey,
+CONVERT(date,BirthDate)AS FullDate,
+DATEPART(DW,BirthDate)AS DayNumber of Meek,
+DATENAME(DW,Birthoate)AS Daytimeofweek,
+DAY(BirthDate)AS DayNumberOfMonth,
+DATEPART(DV,BirthDate)AS Daytaumber of Year,
+DATEPART(WK,Birthoate AS WeekNumber of Year,
+DATENAME(month,BirthDate)AS Monthliame,
+MONTH(BirthDate)AS MonthNumber of year,
+YEAR(BirthDate)AS CalendarYear
+FROM Human Resources.Employee as hre LEFT JOIN Adventureworks 20170LAP.dbo.Dimtime as dt
+ON hre.BirthDate dt.FullDate.
+WHERE dt.FullDate IS NULL AND BirthDate IS NOT NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(HireDate) * 10000 MONTH(HireDate) * 100+DAY(HireDate)AS Datekey,
+CONVERT(date,HireDate)AS Fullpate,
+DATEPART(DW,Hirebate)AS Daytumber of week,
+DATENAME(ON,HireDate),AS DaytameOfleek,
+DAY(HireDate)AS DaytuberofMonth,
+DATEPART(DY,HireDate)AS DayNumber of year,
+DATEPART(WK,HireDate)AS Weekuumber of year,
+DATENAME(month,HireDate)AS Monthllame,
+MONTH(Hirebate)AS Monthlumber of year,
+YEAR(HireDate)AS CalendarYear
+FROM Human Resources.Employee as hre LEFT 30IN Adventureworks 2017OLAP.dbo.DimTime as dt
+ON hre.HireDate=dt.FullDate
+WHERE dt.FullDate IS NULL AND HireDate IS NOT NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(ModifiedDate) * 10000 +MONTH(ModifiedDate) * 100+DAY(ModifiedDate)AS DateKey,
+CONVERT(date,ModifiedDate)AS FullDate,
+DATEPART(DW,ModifiedDale)AS DayNumber ofweek,
+DATENAME(DW,ModifiedDate)AS DayNameOfWeek,
+DAY(ModifiedDate)AS DayNumberOfMonth,
+DATEPART(DY,ModifiedDate)AS DayNumber of Year,
+DATEPART(WK,ModifiedDate)AS weekNumber of year,
+DATENAME(month,ModifiedDate)AS MonthName,
+MONTH(ModifiedDate)AS MonthNumber of Year,
+YEAR(ModifiedDate)AS CalendarYear
+FROM HumanResources.Department as hrd LEFT JOIN Adventureworks20170LAP.dbo.DimTime as dt
+ON hrd.HodifiedDate=dt.FullDate
+WHERE dt.FullDate IS NULL AND ModifiedDate IS NOT NULL
+
+UNION
+
+SELECT
+DISTINCT YEAR(ModifiedDate) * 10000 +MONTH(ModifiedDate) * 100+DAY(ModifiedDate)AS Datekey,
+CONVERT(date,ModifiedDate)AS FullDate,
+DATEPART(DW,ModifiedDate)AS DayNumber of week,
+DATENAME(ON,ModifiedDate)AS DayNameOfWeek,
+DAY(ModifiedDate)AS DayNumberOfMonth,
+DATEPART(DY,ModifiedDate)AS DayNumber of Year,
+DATEPART(WK,ModifiedDate)AS WeekNumber of Year,
+DATENAME(month,HodifiedDate)AS Monthliame,
+MONTH(ModifiedDate)AS MonthNumber of Year,
+YEAR(ModifiedDate)AS CalendarYear
+FROM Person.Person as pp LEFT JOIN Adventureworks 20170LAP.dbo.Dimtime as dt
+ON pp.ModifiedDate dt.FullDate
+WHERE dt.FullDate IS NULL AND ModifiedDate IS NOT NULL;
